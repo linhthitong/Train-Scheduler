@@ -30,7 +30,7 @@ $("#add-train-btn").on("click", function(event) {
     var firstTrainTime = moment($("#firstTrainTime-input").val().trim(), "DD/MM/YY").format("X");
     var frequency = $("#frequency-input").val().trim();
   
-// Creates local "temporary" object for holding employee data
+// Creates local "temporary" object for holding train data
   var newTrain = {
     name: trainName,
     role: trainDestination,
@@ -38,7 +38,26 @@ $("#add-train-btn").on("click", function(event) {
     frequency: frequency
   };
 
-  // Uploads employee data to the database
+  // Uploads train data to the database
   database.ref().push(newTrain);
+
+
+// Uploads train data to the database
+database.ref().push(newTrain);
+
+// Logs everything to console
+console.log(newTrain.name);
+console.log(newTrain.role);
+console.log(newTrain.start);
+console.log(newTrain.frequency);
+
+// Alert
+alert("Train successfully added");
+
+// Clears all of the text-boxes
+$("#train-name-input").val("");
+$("#destination-input").val("");
+$("#firstTrainTime-input").val("");
+$("#frequency-input").val("");
 
 });
